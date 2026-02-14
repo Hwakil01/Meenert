@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Meenert ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#ff9ebc,#ff4d6d,#8a0f2e,#ff6fae);
+background-size:400% 400%;
+animation:bgMove 18s ease infinite;
+color:white;
+overflow-x:hidden;
+scroll-behavior:smooth;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+section{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:60px 20px;
+text-align:center;
+position:relative;
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+text-shadow:0 0 25px rgba(255,255,255,0.8);
+}
+
+.name{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+color:gold;
+text-shadow:0 0 25px gold;
+position:relative;
+margin-bottom:20px;
+}
+
+.sparkle{
+position:absolute;
+width:6px;height:6px;
+background:white;
+border-radius:50%;
+animation:spark 1.5s infinite alternate;
+}
+
+@keyframes spark{
+from{opacity:0}
+to{opacity:1;transform:scale(1.6)}
+}
+
+.btn{
+margin-top:30px;
+padding:14px 40px;
+border-radius:40px;
+border:2px solid gold;
+background:rgba(255,255,255,0.1);
+color:white;
+cursor:pointer;
+font-size:16px;
+transition:.4s;
+box-shadow:0 0 20px rgba(255,215,0,0.7);
+}
+
+.btn:hover{
+background:gold;
+color:#8a0f2e;
+transform:scale(1.1);
+}
+
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1.5s ease;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.photo-frame{
+width:280px;height:360px;
+border-radius:20px;
+padding:10px;
+background:linear-gradient(135deg,gold,#ffb6c1);
+box-shadow:0 0 40px rgba(255,215,0,0.5);
+overflow:hidden;
+}
+.photo-frame img{
+width:100%;height:100%;
+object-fit:cover;
+border-radius:15px;
+transition:1s;
+}
+.photo-frame:hover img{
+transform:scale(1.08);
+}
+
+.reason-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+width:100%;
+}
+
+.card{
+background:rgba(255,255,255,0.12);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 20px rgba(255,215,0,0.4);
+transition:.4s;
+}
+.card:hover{transform:translateY(-10px)}
+
+#countdown{font-size:26px;margin-top:20px}
+
+canvas{
+position:fixed;
+top:0;left:0;
+pointer-events:none;
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+opacity:0;
+visibility:hidden;
+transition:1s;
+z-index:999;
+}
+.overlay.show{
+opacity:1;
+visibility:visible;
+}
+.overlay h1{
+font-size:45px;
+color:gold;
+}
+
+@media(max-width:768px){
+h1{font-size:38px}
+.name{font-size:36px}
+.photo-frame{width:220px;height:300px}
+}
+</style>
+</head>
+<body>
+
+<audio id="music" src="your-music.mp3" loop></audio>
+<canvas id="fireworks"></canvas>
+
+<section>
+<h1>To The Love of My Life ❤️</h1>
+<button class="btn" onclick="openHeart()">Open My Heart</button>
+</section>
+
+<section class="fade">
+<div class="name">❤️ Meenert</div>
+<p style="max-width:650px;line-height:1.8">
+Meenert… from the moment you entered my life,
+everything felt softer and brighter.
+You are my peace, my happiness,
+and the person I want beside me in every chapter.
+— HASSAN ALI WAKEEL
+</p>
+</section>
+
+<section class="fade">
+<h1 style="font-size:45px;">My Beautiful Girl</h1>
+<div class="photo-frame">
+<img id="slider" src="photo1.jpg">
+</div>
+<p style="margin-top:15px;">The smile that changed everything.</p>
+</section>
+
+<section class="fade">
+<h1 style="font-size:45px;">Why I Love You</h1>
+<div class="reason-cards">
+<div class="card">Your laugh makes my world lighter.</div>
+<div class="card">You believe in me when I doubt myself.</div>
+<div class="card">You have the kindest heart.</div>
+<div class="card">Being with you feels like home.</div>
+</div>
+</section>
+
+<section class="fade">
+<h1 style="font-size:45px;">Countdown to Next Valentine’s Day</h1>
+<div id="countdown"></div>
+</section>
+
+<section class="fade">
+<h1 style="font-size:45px;">Will You Be My Forever?</h1>
+<button class="btn" onclick="celebrate()">Yes ❤️</button>
+<button class="btn" onclick="celebrate()">Of Course 💖</button>
+</section>
+
+<div class="overlay" id="overlay">
+<h1>You Just Made Me The Happiest Person Alive ❤️</h1>
+<br>
+<a class="btn" 
+href="https://wa.me/2348163004361?text=Yes%20I%20choose%20you%20forever%20❤️" 
+target="_blank">
+Send My Yes On WhatsApp
+</a>
+</div>
+
+<script>
+function openHeart(){
+document.getElementById("music").play();
+document.querySelectorAll(".fade").forEach(el=>el.classList.add("show"));
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+/* PHOTO SLIDER */
+const images=["photo1.jpg","photo2.jpg","photo3.jpg"];
+let index=0;
+setInterval(()=>{
+index=(index+1)%images.length;
+document.getElementById("slider").src=images[index];
+},4000);
+
+/* COUNTDOWN */
+function updateCountdown(){
+let now=new Date();
+let next=new Date(now.getFullYear(),1,14);
+if(now>next) next.setFullYear(now.getFullYear()+1);
+let diff=next-now;
+let d=Math.floor(diff/1000/60/60/24);
+let h=Math.floor(diff/1000/60/60)%24;
+let m=Math.floor(diff/1000/60)%60;
+let s=Math.floor(diff/1000)%60;
+document.getElementById("countdown").innerHTML=
+`${d} Days ${h}h ${m}m ${s}s`;
+}
+setInterval(updateCountdown,1000);
+
+/* FIREWORKS */
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+function celebrate(){
+document.getElementById("overlay").classList.add("show");
+for(let i=0;i<120;i++){
+let x=canvas.width/2;
+let y=canvas.height/2;
+let angle=Math.random()*2*Math.PI;
+let speed=Math.random()*5+2;
+let dx=Math.cos(angle)*speed;
+let dy=Math.sin(angle)*speed;
+let life=100;
+(function animate(){
+if(life<=0)return;
+ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
+ctx.fillRect(x,y,4,4);
+x+=dx;
+y+=dy;
+life--;
+requestAnimationFrame(animate);
+})();
+}
+}
+</script>
+
+</body>
+</html>
